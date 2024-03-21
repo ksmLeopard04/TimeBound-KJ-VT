@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class stopwatchWeap : MonoBehaviour
 {
     public GameObject prefabToInstantiate;
+    public GameObject stopwatch;
     public float distance = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
-
+    }
+    private void OnEnable()
+    {
     }
 
     // Update is called once per frame

@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public ContactFilter2D movementFilter;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Animator animator;
+    public GameObject stopwatch;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +51,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetMouseButtonDown(0))
+        {
+            stopwatch.SetActive(true);
+            animator.SetBool("Play", true);
+        }
     }
 }
