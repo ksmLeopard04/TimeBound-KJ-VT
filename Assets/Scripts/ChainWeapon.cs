@@ -11,7 +11,10 @@ public class ChainWeapon : MonoBehaviour
     {
         animator.SetBool("Extended", true);
     }
-
+    public void LockMovement()
+    {
+        PlayerController.canMove = !PlayerController.canMove;
+    }
     // Update is called once per frame
     void Update()
     {

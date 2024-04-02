@@ -14,27 +14,32 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     public GameObject stopwatch;
     public Animator weaponAnimator;
+    public static bool canMove;
     float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
+        canMove = true;
         timer = 1.034f;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
-        if (movementInput != Vector2.zero)
+        if(canMove)
         {
-            int count = rb.Cast(
-                movementInput,
-                movementFilter,
-                castCollisions,
-                moveSpeed * Time.fixedDeltaTime * collisionOffset);
-            if (count == 0)
+            if (movementInput != Vector2.zero)
             {
-                rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+                int count = rb.Cast(
+                    movementInput,
+                    movementFilter,
+                    castCollisions,
+                    moveSpeed * Time.fixedDeltaTime * collisionOffset);
+                if (count == 0)
+                {
+                    rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+                }
             }
         }
     }
@@ -64,6 +69,14 @@ public class PlayerController : MonoBehaviour
             stopwatch.SetActive(true);
             weaponAnimator.SetBool("Attack", true);
             weaponAnimator.SetBool("Extended", false);
+        }
+        if(timer > 0.8)
+        {
+            canMove = true;
+        }
+        else
+        {
+            canMove = false;
         }
     }
 }
