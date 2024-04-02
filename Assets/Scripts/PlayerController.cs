@@ -13,22 +13,26 @@ public class PlayerController : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Animator animator;
     public GameObject stopwatch;
+    public Animator weaponAnimator;
+    float timer = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
+        timer = 1.034f;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
-        if(movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero)
         {
             int count = rb.Cast(
                 movementInput,
                 movementFilter,
                 castCollisions,
                 moveSpeed * Time.fixedDeltaTime * collisionOffset);
-            if(count == 0)
+            if (count == 0)
             {
                 rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
             }
@@ -37,7 +41,7 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
-        if(movementInput != Vector2.zero)
+        if (movementInput != Vector2.zero)
         {
             animator.SetFloat("XInput", movementInput.x);
             animator.SetFloat("YInput", movementInput.y);
@@ -51,10 +55,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        timer += Time.deltaTime;
+        if (Input.GetMouseButtonDown(0) && timer > 1.034)
         {
+            timer = 0;
+            weaponAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
+            weaponAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
             stopwatch.SetActive(true);
-            animator.SetBool("Play", true);
+            weaponAnimator.SetBool("Attack", true);
+            weaponAnimator.SetBool("Extended", false);
         }
     }
 }
