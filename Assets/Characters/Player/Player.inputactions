@@ -31,6 +31,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Fire2",
+                    "type": "Button",
+                    "id": "ffe28c1b-2f93-48ee-8cc4-5c2c924a561e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -48,7 +57,7 @@
                 {
                     "name": "WASD",
                     "id": "00ca640b-d935-4593-8157-c05846ea39b3",
-                    "path": "Dpad",
+                    "path": "Dpad(mode=1)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -251,6 +260,17 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "facb5142-6adf-4506-a530-d83520f56840",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

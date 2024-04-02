@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(canMove)
+        if (canMove)
         {
             if (movementInput != Vector2.zero)
             {
@@ -46,6 +46,14 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
+        if(movementInput.x != 0)
+        {
+            movementInput = new Vector2(movementInput.x, 0);
+        }
+        if(movementInput.y != 0f)
+        {
+            movementInput = new Vector2(0, movementInput.y);
+        }
         if (movementInput != Vector2.zero)
         {
             animator.SetFloat("XInput", movementInput.x);
@@ -61,7 +69,20 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (Input.GetMouseButtonDown(0) && timer > 1.034)
+        if (timer > 1.034)
+        {
+            canMove = true;
+            animator.SetBool("canMove", true);
+        }
+        else
+        {
+            canMove = false;
+            animator.SetBool("canMove", false);
+        }
+    }
+    public void OnFire()
+    {
+        if (timer > 1.034)
         {
             timer = 0;
             weaponAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
@@ -70,13 +91,9 @@ public class PlayerController : MonoBehaviour
             weaponAnimator.SetBool("Attack", true);
             weaponAnimator.SetBool("Extended", false);
         }
-        if(timer > 0.8)
-        {
-            canMove = true;
-        }
-        else
-        {
-            canMove = false;
-        }
+    }
+    public void OnFire2()
+    {
+        animator.SetTrigger("swordAttack");
     }
 }
