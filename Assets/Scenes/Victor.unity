@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: 1071663836}
   - component: {fileID: 1071663837}
   - component: {fileID: 1071663838}
+  - component: {fileID: 1071663839}
   m_Layer: 0
   m_Name: PurpleBot
   m_TagString: Untagged
@@ -525,6 +526,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1071663839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1071663832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b969c7baccb26441918232927a1f061, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.5
+  stoppingDistance: 0.5
+  retreatDistance: 0.5
+  startTimeBtwShots: 2
+  projectile: {fileID: 8317516662857121444, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+  player: {fileID: 1758577102}
 --- !u!1 &1287548142
 GameObject:
   m_ObjectHideFlags: 0
@@ -4126,6 +4145,11 @@ Transform:
   - {fileID: 1287548143}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1758577102 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5152170329238194874, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+  m_PrefabInstance: {fileID: 7446541979799979545}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2097959681 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4192606519735923200, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
@@ -4136,6 +4160,67 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5465190396106023548, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
   m_PrefabInstance: {fileID: 7446541979799979545}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &826430783757752076
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8317516662857121444, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_Name
+      value: PurpleBotProjectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 8317516662857121444, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.728936
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.41906077
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069433099145747866, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
 --- !u!1001 &3762633384580100568
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4375,6 +4460,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8390599506871152461, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8390599506871152461, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: prefabToInstantiate
       value: 
       objectReference: {fileID: 6085780801222956256, guid: 582c7195ab2836b478576554896a4d21, type: 3}
@@ -4475,6 +4564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bomb
       objectReference: {fileID: 0}
+    - target: {fileID: 6085780801222956256, guid: 582c7195ab2836b478576554896a4d21, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4492,3 +4585,4 @@ SceneRoots:
   - {fileID: 1055682742}
   - {fileID: 3762633384580100568}
   - {fileID: 8389386453594561541}
+  - {fileID: 826430783757752076}
