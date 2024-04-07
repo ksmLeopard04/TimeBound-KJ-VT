@@ -9,6 +9,7 @@ public class PurpleBot2 : MonoBehaviour
     public float retreatDistance;
 
     private float timeBtwShots;
+    public float timer;
     public float startTimeBtwShots;
 
     public GameObject projectile;
@@ -35,7 +36,7 @@ public class PurpleBot2 : MonoBehaviour
         {
             transform.position = this.transform.position;
         }
-        else if (Vector2.Distance(transform.position, player.position) <  retreatDistance)
+        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
@@ -48,6 +49,24 @@ public class PurpleBot2 : MonoBehaviour
         else
         {
             timeBtwShots -= Time.deltaTime;
+        }
+        if (speed == 0.2f)
+        {
+            if(timer == 0)
+            {
+                timer = 4.0f;
+            }
+            if(timer > 0)
+            {
+                timer -= Time.deltaTime;
+            }
+            if(timer <= 0)
+            {
+                timer = 0;
+                speed = 1.5f;
+                startTimeBtwShots = 2.7f;
+                gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
     }
 }
