@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Net;
+using UnityEngine;
+
+public class ChainExtended : MonoBehaviour
+{
+    public Animator animator;
+    // Start is called before the first frame update
+    void OnEnable()
+    {
+        animator.SetBool("Extended", true);
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}

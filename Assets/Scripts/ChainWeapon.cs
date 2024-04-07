@@ -1,19 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
 
 public class ChainWeapon : MonoBehaviour
 {
-    public Animator animator;
-    // Start is called before the first frame update
-    void OnEnable()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        animator.SetBool("Extended", true);
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if(collision.gameObject.tag == "Enemy")
+        {
+            collision.gameObject.GetComponent<PurpleBot2>().speed = 0.2f;
+            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
+        }
     }
 }
