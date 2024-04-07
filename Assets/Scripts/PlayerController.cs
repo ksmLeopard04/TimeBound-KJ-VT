@@ -81,8 +81,16 @@ public class PlayerController : MonoBehaviour
         if (timer > 1.034)
         {
             timer = 0;
-            weaponAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
-            weaponAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
+            if(animator.GetFloat("XInput") != 0 || animator.GetFloat("YInput") != 0)
+            {
+                weaponAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
+                weaponAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
+            }
+            else
+            {
+                weaponAnimator.SetFloat("XInput", -1);
+                weaponAnimator.SetFloat("YInput", 0);
+            }
             stopwatch.SetActive(true);
             weaponAnimator.SetBool("Attack", true);
             weaponAnimator.SetBool("Extended", false);
@@ -125,23 +133,23 @@ public class PlayerController : MonoBehaviour
             {
                 if (animator.GetFloat("XInput") < 0)
                 {
-                    swordHitBox.transform.localPosition = new Vector3(-0.112f, 0.096f);
+                    swordHitBox.transform.localPosition = new Vector3(-0.112f, -0.085f);
                     Debug.Log(swordHitBox.transform.position);
                 }
                 else
                 {
-                    swordHitBox.transform.localPosition = new Vector3(0.112f, 0.096f);
+                    swordHitBox.transform.localPosition = new Vector3(0.112f, -0.085f);
                 }
             }
             if (animator.GetFloat("XInput") == 0)
             {
                 if (animator.GetFloat("YInput") < 0)
                 {
-                    swordHitBox.transform.localPosition = new Vector3(0, 0.006f);
+                    swordHitBox.transform.localPosition = new Vector3(0.016f, -0.179f);
                 }
                 else
                 {
-                    swordHitBox.transform.localPosition = new Vector3(0, 0152f);
+                    swordHitBox.transform.localPosition = new Vector3(0, -0.039f);
                 }
             }
             animator.Play("SwordAttack");
