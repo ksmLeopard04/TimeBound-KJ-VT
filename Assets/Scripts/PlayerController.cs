@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,7 +14,10 @@ public class PlayerController : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     private Animator animator;
     public GameObject stopwatch;
+    public GameObject sword;
+    public GameObject swordHitBox;
     public Animator weaponAnimator;
+    public Animator swordAnimator;
     public static bool canMove;
     float timer = 0f;
 
@@ -46,14 +50,6 @@ public class PlayerController : MonoBehaviour
     public void OnMove(InputValue movementValue)
     {
         movementInput = movementValue.Get<Vector2>();
-        if(movementInput.x != 0)
-        {
-            movementInput = new Vector2(movementInput.x, 0);
-        }
-        if(movementInput.y != 0f)
-        {
-            movementInput = new Vector2(0, movementInput.y);
-        }
         if (movementInput != Vector2.zero)
         {
             animator.SetFloat("XInput", movementInput.x);
@@ -69,7 +65,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer > 1.034)
+        if (timer > 0.5)
         {
             canMove = true;
             animator.SetBool("canMove", true);
@@ -94,6 +90,61 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire2()
     {
-        animator.SetTrigger("swordAttack");
+        timer = 0;
+        if(movementInput.x != 0 && movementInput.y != 0)
+        {
+            if(movementInput.y < 0)
+            {
+                if(movementInput.x < 0)
+                {
+                    sword.transform.localPosition = new Vector3(0.039f, -0.151f);
+                }
+                else
+                {
+                    sword.transform.localPosition = new Vector3(-0.019f, -0.151f);
+                }
+            }
+            else
+            {
+                if (movementInput.x < 0)
+                {
+                    sword.transform.localPosition = new Vector3(0.039f, -0.017f);
+                }
+                else
+                {
+                    sword.transform.localPosition = new Vector3(-0.019f, -0.017f);
+                }
+            }
+            swordAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
+            swordAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
+            swordAnimator.Play("SwordAttack");
+        }
+        if(animator.GetFloat("XInput") == 0 || animator.GetFloat("YInput") == 0)
+        {
+            if (animator.GetFloat("YInput") == 0)
+            {
+                if (animator.GetFloat("XInput") < 0)
+                {
+                    swordHitBox.transform.localPosition = new Vector3(-0.112f, 0.096f);
+                    Debug.Log(swordHitBox.transform.position);
+                }
+                else
+                {
+                    swordHitBox.transform.localPosition = new Vector3(0.112f, 0.096f);
+                }
+            }
+            if (animator.GetFloat("XInput") == 0)
+            {
+                if (animator.GetFloat("YInput") < 0)
+                {
+                    swordHitBox.transform.localPosition = new Vector3(0, 0.006f);
+                }
+                else
+                {
+                    swordHitBox.transform.localPosition = new Vector3(0, 0152f);
+                }
+            }
+            animator.Play("SwordAttack");
+        }
     }
 }
