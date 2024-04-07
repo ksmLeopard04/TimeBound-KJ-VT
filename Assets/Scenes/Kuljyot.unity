@@ -206,6 +206,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: retreatDistance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: stoppingDistance
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 5080304265648505709, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: m_Name
       value: PurpleBot
