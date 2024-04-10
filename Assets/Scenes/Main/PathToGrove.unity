@@ -335,6 +335,75 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &728549560
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: SceneNumber
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -20.94
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 33.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037068393
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313165816955730702, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_Name
+      value: SceneThing
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574896054027811810, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_Size.x
+      value: 10.927208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574896054027811810, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.6416988
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
 --- !u!1 &1494082085
 GameObject:
   m_ObjectHideFlags: 0
@@ -15049,7 +15118,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 33
-      m_TileSpriteIndex: 38
+      m_TileSpriteIndex: 45
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -15376,8 +15445,8 @@ Tilemap:
     m_Data: {fileID: -824513251, guid: 81a2e39d19da3804d8a1804254bb5138, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 671204044, guid: 81a2e39d19da3804d8a1804254bb5138, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1772569844, guid: 81a2e39d19da3804d8a1804254bb5138, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: -1373697037, guid: 81a2e39d19da3804d8a1804254bb5138, type: 3}
   - m_RefCount: 25
@@ -15390,8 +15459,8 @@ Tilemap:
     m_Data: {fileID: 2145705282, guid: 81a2e39d19da3804d8a1804254bb5138, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1772569844, guid: 81a2e39d19da3804d8a1804254bb5138, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -2037465773, guid: 06855671f7855be488e0228da3e57016, type: 3}
   - m_RefCount: 1
@@ -16251,3 +16320,4 @@ SceneRoots:
   - {fileID: 115973466}
   - {fileID: 1494082087}
   - {fileID: 1512114633}
+  - {fileID: 728549560}

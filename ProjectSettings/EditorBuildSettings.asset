@@ -5,7 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Kuljyot.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Main/Home.unity
+    guid: 87b64f9947704674ea1a18544c601502
+  - enabled: 1
+    path: Assets/Scenes/Main/OutsideHome.unity
+    guid: dc491fa15fbd5264eb6e60678cfd7743
+  - enabled: 1
+    path: Assets/Scenes/Main/PathToGrove.unity
+    guid: b392b6dd5c734e4449bc722ab660cab5
+  - enabled: 1
+    path: Assets/Scenes/Main/Grove.unity
+    guid: 1790e9f0c5907424a98962a2f852980b
   m_configObjects: {}
