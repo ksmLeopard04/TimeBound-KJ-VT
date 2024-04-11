@@ -5,6 +5,7 @@ using UnityEngine;
 public class xddscript : MonoBehaviour
 {
     public GameObject gravitything;
+    public GameObject panel;
 
     // Start is called before the first frame update
     void Start()
@@ -31,12 +32,15 @@ public class xddscript : MonoBehaviour
     {
         GameObject.Find("Player").GetComponent<PlayerController>().moveSpeed = 0;
         gravitything.SetActive(true);
+        panel.SetActive(true);
 
         // Yield for one second
         yield return new WaitForSeconds(5);
-
+        panel.SetActive(false);
         gravitything.SetActive(false);
         GameObject.Find("Player").GetComponent<PlayerController>().moveSpeed = 7;
+
+        gameObject.SetActive(false);
 
     }
 }
