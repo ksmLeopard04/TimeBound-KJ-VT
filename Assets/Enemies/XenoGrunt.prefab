@@ -96,6 +96,7 @@ GameObject:
   - component: {fileID: 3977399124947560351}
   - component: {fileID: 6196582785031531409}
   - component: {fileID: 7561636559263176957}
+  - component: {fileID: -1615695067365267507}
   m_Layer: 0
   m_Name: XenoGrunt
   m_TagString: Untagged
@@ -269,3 +270,16 @@ CircleCollider2D:
   m_Offset: {x: -0.082853496, y: 0}
   serializedVersion: 2
   m_Radius: 1.0376625
+--- !u!114 &-1615695067365267507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032652030555953653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42417fd84e1c533418cb6bc447e83bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10

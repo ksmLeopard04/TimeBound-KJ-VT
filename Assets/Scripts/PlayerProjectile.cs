@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 public class PlayerProjectile : MonoBehaviour
@@ -21,7 +20,7 @@ public class PlayerProjectile : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(5);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(2);
         }
     }
 }

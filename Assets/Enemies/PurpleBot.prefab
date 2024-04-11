@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 4458468860380242254}
   m_Layer: 0
   m_Name: PurpleBot
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,7 +116,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.065, y: -0.022, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2484689746120267368}
   m_Father: {fileID: 0}
@@ -161,7 +161,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 465967774, guid: 50897ecc5fb3d164dbc15c951f8ba7c9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -224,7 +224,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -284,11 +284,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  stoppingDistance: 0.5
+  stoppingDistance: 0.6
   retreatDistance: 1
   timeBtwShots: 0
   timer: 0
-  startTimeBtwShots: 4
+  startTimeBtwShots: 2.2
   projectile: {fileID: 8317516662857121444, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
   player: {fileID: 0}
 --- !u!114 &4458468860380242254

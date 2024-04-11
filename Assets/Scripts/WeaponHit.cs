@@ -8,7 +8,7 @@ public class WeaponHit : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(5);
+            collision.gameObject.GetComponent<Enemy>().TakeDamage(2);
         }
     }
 }

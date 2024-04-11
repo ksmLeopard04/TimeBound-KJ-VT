@@ -5,6 +5,8 @@ using UnityEngine;
 public class Eventshsidadna : MonoBehaviour
 {
     private GameObject player;
+    public GameObject enemy;
+    public Transform enemySpawn;
     public GameObject battleMusic;
 
     // Start is called before the first frame update
@@ -13,6 +15,7 @@ public class Eventshsidadna : MonoBehaviour
         if (xddscript.gotSucked)
         {
             player = GameObject.Find("Player");
+            enemy.SetActive(true);
             player.transform.position = gameObject.transform.position;
             battleMusic.SetActive(true);
         }

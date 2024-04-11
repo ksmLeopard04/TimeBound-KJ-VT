@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -28,7 +28,10 @@ public class PlayerController : MonoBehaviour
     public static bool canMove;
     public GameObject panel;
     float timer = 0f;
-    float sandyTimer = 0f;
+    float sandyTimer = 10f;
+    bool sandyEnabled = false;
+    public float sandyLeft;
+    public int health;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +40,8 @@ public class PlayerController : MonoBehaviour
         timer = 1.034f;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        sandyLeft = 3.0f;
+        health = 0;
     }
     private void OnEnable()
     {
@@ -137,6 +142,34 @@ public class PlayerController : MonoBehaviour
             shieldHoldAnimator.SetBool("isReleased", true);
         }
         sandyTimer += Time.deltaTime;
+        if(sandyEnabled)
+        {
+            if(sandyLeft >= 0)
+            {
+                sandyLeft -= Time.deltaTime;
+            }
+            if(sandyLeft <= 0)
+            {
+                sandyTimer = 0;
+                moveSpeed = moveSpeed / 2;
+                animator.speed = animator.speed / 2;
+                shieldAnimator.speed = shieldAnimator.speed / 2;
+                spearAnimator.speed = spearAnimator.speed / 2;
+                weaponAnimator.speed = weaponAnimator.speed / 2;
+                swordAnimator.speed = swordAnimator.speed / 2;
+                shieldHoldAnimator.speed = shieldAnimator.speed / 2;
+                Time.timeScale = 1f;
+                sandyEnabled = false;
+                sandyLeft = 3.0f;
+                sandyTimer = 0f;
+                panel.SetActive(false);
+            }
+        }
+        GetComponentInChildren<HealthUI>().healthIndex = health;
+        if(health >= 4)
+        {
+            SceneManager.LoadScene("Home");
+        }
     }
     public void OnFire()
     {
@@ -256,7 +289,15 @@ public class PlayerController : MonoBehaviour
         if(sandyTimer >= 10f)
         {
             panel.SetActive(true);
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            Time.timeScale = 0.5f;
+            GetComponent<PlayerController>().moveSpeed = GetComponent<PlayerController>().moveSpeed * 2;
+            animator.speed = animator.speed * 2;
+            shieldAnimator.speed = shieldAnimator.speed * 2;
+            spearAnimator.speed = spearAnimator.speed * 2;
+            weaponAnimator.speed = weaponAnimator.speed * 2;
+            swordAnimator.speed = swordAnimator.speed * 2;
+            shieldHoldAnimator.speed = shieldAnimator.speed * 2;
+            sandyEnabled = true;
         }
     }
 }

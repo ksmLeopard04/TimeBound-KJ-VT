@@ -32,6 +32,7 @@ public class PurpleBotProjectile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            player.GetComponent<PlayerController>().health += 1;
             DestroyProjectile();
         }
     }
