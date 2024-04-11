@@ -17,7 +17,9 @@ public class GoNext : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (SceneManager.GetActiveScene().name == "Grove")
+            BGmusic.instance.GetComponent<AudioSource>().Pause();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -25,5 +27,6 @@ public class GoNext : MonoBehaviour
         {
             SceneManager.LoadScene(SceneNumber);
         }
+
     }
 }
