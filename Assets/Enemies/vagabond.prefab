@@ -65,9 +65,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.1109859, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 5.2320614
 --- !u!114 &4872301064741631973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 6196582785031531409}
   - component: {fileID: 7561636559263176957}
   m_Layer: 0
-  m_Name: XenoGrunt
+  m_Name: vagabond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.8765919, y: -0.02259, z: 0}
-  m_LocalScale: {x: 0.6022244, y: 0.6022244, z: 0.6022244}
+  m_LocalScale: {x: 1.0368688, y: 1.0368688, z: 1.0368688}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9059462331259480391}
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 43142652, guid: 88bdf74e84108e7489963fd8679e2845, type: 3}
+  m_Sprite: {fileID: 3292589496844879571, guid: 332a6b26de0fe2a40a9970c1402e71cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -181,7 +181,7 @@ Animator:
   m_GameObject: {fileID: 7032652030555953653}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b5b6b3bba141ef44a81d2be34c696912, type: 2}
+  m_Controller: {fileID: 9100000, guid: b57d739dd9e3c94499dd314859a48f06, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -263,9 +263,9 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.082853496, y: 0}
   serializedVersion: 2
-  m_Radius: 0.2712692
+  m_Radius: 1.0376625
