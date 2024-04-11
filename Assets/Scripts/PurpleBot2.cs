@@ -8,7 +8,7 @@ public class PurpleBot2 : MonoBehaviour
     public float stoppingDistance;
     public float retreatDistance;
 
-    private float timeBtwShots;
+    public float timeBtwShots;
     public float timer;
     public float startTimeBtwShots;
 

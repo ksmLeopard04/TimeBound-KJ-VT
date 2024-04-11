@@ -25,7 +25,7 @@ public class GoNext : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene(SceneNumber);
+            SceneManager.LoadSceneAsync(SceneNumber);
         }
 
     }

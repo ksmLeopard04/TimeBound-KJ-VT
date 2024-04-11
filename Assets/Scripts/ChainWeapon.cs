@@ -10,6 +10,7 @@ public class ChainWeapon : MonoBehaviour
         {
             collision.gameObject.GetComponent<PurpleBot2>().speed = 0.2f;
             collision.gameObject.GetComponent<PurpleBot2>().startTimeBtwShots = 3.5f;
+            collision.gameObject.GetComponent<PurpleBot2>().timeBtwShots = collision.gameObject.GetComponent<PurpleBot2>().startTimeBtwShots;
             collision.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
     }

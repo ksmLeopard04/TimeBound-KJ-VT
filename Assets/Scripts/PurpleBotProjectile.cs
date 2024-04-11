@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PurpleBotProjectile : MonoBehaviour
 {
-    private float speed;
+    public float speed;
 
     private Transform player;
     private Vector2 target;
@@ -15,7 +15,6 @@ public class PurpleBotProjectile : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         target = new Vector2(player.position.x, player.position.y);
-        speed = 3f;
     }
 
     // Update is called once per frame

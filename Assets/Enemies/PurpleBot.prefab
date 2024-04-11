@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 3612388093416099811}
   - component: {fileID: 1072382514181773744}
   - component: {fileID: 4109079082144048307}
+  - component: {fileID: 4458468860380242254}
   m_Layer: 0
   m_Name: PurpleBot
   m_TagString: Untagged
@@ -285,6 +286,21 @@ MonoBehaviour:
   speed: 1
   stoppingDistance: 0.5
   retreatDistance: 1
+  timeBtwShots: 0
+  timer: 0
   startTimeBtwShots: 4
   projectile: {fileID: 8317516662857121444, guid: 4b93492c99e619f4ca19d4d29bcc6e1c, type: 3}
   player: {fileID: 0}
+--- !u!114 &4458468860380242254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080304265648505709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42417fd84e1c533418cb6bc447e83bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
