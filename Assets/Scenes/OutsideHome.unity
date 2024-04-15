@@ -131,22 +131,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1737562257753479749, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
-      propertyPath: moveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152170329238194874, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5.2426
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152170329238194874, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5.2426
-      objectReference: {fileID: 0}
-    - target: {fileID: 5152170329238194874, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5.2426
-      objectReference: {fileID: 0}
     - target: {fileID: 5152170329238194874, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.75
@@ -190,10 +174,6 @@ PrefabInstance:
     - target: {fileID: 7764843526331348534, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7764843526331348534, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -336,7 +316,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 20
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -346,7 +326,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -417,10 +397,10 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: -508914910, guid: c8fc7121dc32a0b47bc12d990f7f4baa, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1240966603, guid: c8fc7121dc32a0b47bc12d990f7f4baa, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 707224908, guid: c8fc7121dc32a0b47bc12d990f7f4baa, type: 3}
   - m_RefCount: 2
@@ -455,10 +435,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -508914910, guid: c8fc7121dc32a0b47bc12d990f7f4baa, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: -1240966603, guid: c8fc7121dc32a0b47bc12d990f7f4baa, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 8
     m_Data:
