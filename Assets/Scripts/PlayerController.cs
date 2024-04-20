@@ -29,11 +29,9 @@ public class PlayerController : MonoBehaviour
     public static bool canMove;
     public GameObject panel;
     float timer = 0f;
-    float sandyTimer = 10f;
-    bool sandyEnabled = false;
-    public float sandyLeft;
     public float health;
     public bool gotSucked;
+    public bool parrySandy;
     [SerializeField] GameObject BGMusic;
     [Header("Dash Settings")]
     [SerializeField] float dashSpeed = 10f;
@@ -44,13 +42,13 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         if (playerInstance == null) // If there is not yet a gamemanager then this object
-                                // will be the gamemanager.
+                                    // will be the gamemanager.
         {
             playerInstance = this;
             DontDestroyOnLoad(this.gameObject);
         }
         else if (playerInstance != this) // If there is already a gamemanager then destroy
-                                     // this object. There should only ever be one.
+                                         // this object. There should only ever be one.
         {
             Destroy(gameObject);
         }
@@ -62,7 +60,6 @@ public class PlayerController : MonoBehaviour
         timer = 1.034f;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        sandyLeft = 3.0f;
         health = 0;
     }
     private void OnEnable()
@@ -93,10 +90,10 @@ public class PlayerController : MonoBehaviour
                     movementInput,
                     movementFilter,
                     castCollisions,
-                    moveSpeed * Time.fixedDeltaTime * collisionOffset);
+                    moveSpeed * Time.unscaledDeltaTime * collisionOffset);
                 if (count == 0)
                 {
-                    rb.MovePosition(rb.position + movementInput * moveSpeed * Time.fixedDeltaTime);
+                    rb.MovePosition(rb.position + movementInput * moveSpeed * Time.unscaledDeltaTime);
                 }
             }
         }
@@ -142,7 +139,12 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
+        if(parrySandy)
+        {
+            StartCoroutine(Sandy(3));
+            parrySandy = false;
+        }
+        timer += Time.unscaledDeltaTime;
         if (isDashing)
         {
             return;
@@ -166,30 +168,6 @@ public class PlayerController : MonoBehaviour
         if (parryAction.WasReleasedThisFrame())
         {
             shieldHoldAnimator.SetBool("isReleased", true);
-        }
-        sandyTimer += Time.deltaTime;
-        if (sandyEnabled)
-        {
-            if (sandyLeft >= 0)
-            {
-                sandyLeft -= Time.deltaTime;
-            }
-            if (sandyLeft <= 0)
-            {
-                sandyTimer = 0;
-                moveSpeed = moveSpeed / 2;
-                animator.speed = animator.speed / 2;
-                shieldAnimator.speed = shieldAnimator.speed / 2;
-                spearAnimator.speed = spearAnimator.speed / 2;
-                weaponAnimator.speed = weaponAnimator.speed / 2;
-                swordAnimator.speed = swordAnimator.speed / 2;
-                shieldHoldAnimator.speed = shieldAnimator.speed / 2;
-                Time.timeScale = 1f;
-                sandyEnabled = false;
-                sandyLeft = 3.0f;
-                sandyTimer = 0f;
-                panel.SetActive(false);
-            }
         }
         GetComponentInChildren<HealthUI>().healthIndex = (int)health;
         if (health >= 4)
@@ -283,19 +261,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnSandy()
     {
-        if (sandyTimer >= 10f)
-        {
-            panel.SetActive(true);
-            Time.timeScale = 0.5f;
-            GetComponent<PlayerController>().moveSpeed = GetComponent<PlayerController>().moveSpeed * 2;
-            animator.speed = animator.speed * 2;
-            shieldAnimator.speed = shieldAnimator.speed * 2;
-            spearAnimator.speed = spearAnimator.speed * 2;
-            weaponAnimator.speed = weaponAnimator.speed * 2;
-            swordAnimator.speed = swordAnimator.speed * 2;
-            shieldHoldAnimator.speed = shieldAnimator.speed * 2;
-            sandyEnabled = true;
-        }
+        StartCoroutine(Sandy(7f));
     }
     public void OnDash()
     {
@@ -314,5 +280,26 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         canMove = false;
         isDashing = false;
+    }
+    public IEnumerator Sandy(float sandyTime)
+    {
+        panel.SetActive(true);
+        Time.timeScale = 0.5f;
+        animator.speed = animator.speed / 0.5f;
+        shieldAnimator.speed = shieldAnimator.speed / 0.5f;
+        spearAnimator.speed = spearAnimator.speed / 0.5f;
+        weaponAnimator.speed = weaponAnimator.speed / 0.5f;
+        swordAnimator.speed = swordAnimator.speed / 0.5f;
+        shieldHoldAnimator.speed = shieldAnimator.speed / 0.5f;
+        yield return new WaitForSecondsRealtime(sandyTime);
+        animator.speed = animator.speed * 0.5f;
+        shieldAnimator.speed = shieldAnimator.speed * 0.5f;
+        spearAnimator.speed = spearAnimator.speed * 0.5f;
+        weaponAnimator.speed = weaponAnimator.speed * 0.5f;
+        swordAnimator.speed = swordAnimator.speed * 0.5f;
+        shieldHoldAnimator.speed = shieldAnimator.speed * 0.5f;
+        Time.timeScale = 1f;
+        panel.SetActive(false);
+        parrySandy = false;
     }
 }

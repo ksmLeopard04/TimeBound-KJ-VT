@@ -12,6 +12,7 @@ public class Parry : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Instantiate(projectile, deflectOrigin.transform.position, deflectOrigin.transform.rotation);
+            GetComponentInParent<PlayerController>().parrySandy = true;
         }
     }
 }
