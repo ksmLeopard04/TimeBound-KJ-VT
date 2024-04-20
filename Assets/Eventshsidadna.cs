@@ -12,18 +12,12 @@ public class Eventshsidadna : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (xddscript.gotSucked)
+        if (GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true)
         {
             player = GameObject.Find("Player");
             enemy.SetActive(true);
             player.transform.position = gameObject.transform.position;
             battleMusic.SetActive(true);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

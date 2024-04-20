@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController playerInstance = null;
     public InputAction parryAction;
     Vector2 movementInput;
     Rigidbody2D rb;
@@ -31,8 +32,29 @@ public class PlayerController : MonoBehaviour
     float sandyTimer = 10f;
     bool sandyEnabled = false;
     public float sandyLeft;
-    public int health;
+    public float health;
+    public bool gotSucked;
+    [SerializeField] GameObject BGMusic;
+    [Header("Dash Settings")]
+    [SerializeField] float dashSpeed = 10f;
+    [SerializeField] float dashDuration = 1f;
+    [SerializeField] float dashCooldown = 1f;
+    public bool isDashing;
 
+    private void Awake()
+    {
+        if (playerInstance == null) // If there is not yet a gamemanager then this object
+                                // will be the gamemanager.
+        {
+            playerInstance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else if (playerInstance != this) // If there is already a gamemanager then destroy
+                                     // this object. There should only ever be one.
+        {
+            Destroy(gameObject);
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -57,6 +79,16 @@ public class PlayerController : MonoBehaviour
         {
             if (movementInput != Vector2.zero)
             {
+                weaponAnimator.SetFloat("XInput", movementInput.x);
+                weaponAnimator.SetFloat("YInput", movementInput.y);
+                swordAnimator.SetFloat("XInput", movementInput.x);
+                swordAnimator.SetFloat("YInput", movementInput.y);
+                shieldHoldAnimator.SetFloat("XInput", movementInput.x);
+                shieldHoldAnimator.SetFloat("YInput", movementInput.y);
+                spearAnimator.SetFloat("XInput", movementInput.x);
+                spearAnimator.SetFloat("YInput", movementInput.y);
+                shieldAnimator.SetFloat("XInput", movementInput.x);
+                shieldAnimator.SetFloat("YInput", movementInput.y);
                 int count = rb.Cast(
                     movementInput,
                     movementFilter,
@@ -111,6 +143,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+        if (isDashing)
+        {
+            return;
+        }
         if (timer > 0.5)
         {
             canMove = true;
@@ -121,34 +157,24 @@ public class PlayerController : MonoBehaviour
             canMove = false;
             animator.SetBool("canMove", false);
         }
-        if(parryAction.IsPressed() && timer > 0.2f)
+        if (parryAction.IsPressed() && timer > 0.2f)
         {
             timer = 0;
             shieldHoldAnimator.SetBool("isReleased", false);
-            if (animator.GetFloat("XInput") != 0 || animator.GetFloat("YInput") != 0)
-            {
-                shieldHoldAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
-                shieldHoldAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
-            }
-            else
-            {
-                shieldHoldAnimator.SetFloat("XInput", -1);
-                shieldHoldAnimator.SetFloat("YInput", 0);
-            }
             shieldHoldAnimator.Play("ShieldHold");
         }
-        if(parryAction.WasReleasedThisFrame())
+        if (parryAction.WasReleasedThisFrame())
         {
             shieldHoldAnimator.SetBool("isReleased", true);
         }
         sandyTimer += Time.deltaTime;
-        if(sandyEnabled)
+        if (sandyEnabled)
         {
-            if(sandyLeft >= 0)
+            if (sandyLeft >= 0)
             {
                 sandyLeft -= Time.deltaTime;
             }
-            if(sandyLeft <= 0)
+            if (sandyLeft <= 0)
             {
                 sandyTimer = 0;
                 moveSpeed = moveSpeed / 2;
@@ -165,10 +191,13 @@ public class PlayerController : MonoBehaviour
                 panel.SetActive(false);
             }
         }
-        GetComponentInChildren<HealthUI>().healthIndex = health;
-        if(health >= 4)
+        GetComponentInChildren<HealthUI>().healthIndex = (int)health;
+        if (health >= 4)
         {
             SceneManager.LoadScene("Home");
+            health = 0;
+            BGMusic.SetActive(true);
+            gotSucked = false;
         }
     }
     public void OnFire()
@@ -176,16 +205,6 @@ public class PlayerController : MonoBehaviour
         if (timer > 1.034)
         {
             timer = 0;
-            if (animator.GetFloat("XInput") != 0 || animator.GetFloat("YInput") != 0)
-            {
-                weaponAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
-                weaponAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
-            }
-            else
-            {
-                weaponAnimator.SetFloat("XInput", -1);
-                weaponAnimator.SetFloat("YInput", 0);
-            }
             stopwatch.SetActive(true);
             weaponAnimator.SetBool("Attack", true);
             weaponAnimator.SetBool("Extended", false);
@@ -193,100 +212,78 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire2()
     {
-        if (timer > 0.5)
+        timer = 0;
+        if (movementInput.x != 0 && movementInput.y != 0)
         {
-            timer = 0;
-            if (movementInput.x != 0 && movementInput.y != 0)
+            if (movementInput.y < 0)
             {
-                if (movementInput.y < 0)
+                if (movementInput.x < 0)
                 {
-                    if (movementInput.x < 0)
-                    {
-                        sword.transform.localPosition = new Vector3(0.039f, -0.151f);
-                    }
-                    else
-                    {
-                        sword.transform.localPosition = new Vector3(-0.019f, -0.151f);
-                    }
+                    sword.transform.localPosition = new Vector3(0.039f, -0.151f);
                 }
                 else
                 {
-                    if (movementInput.x < 0)
-                    {
-                        sword.transform.localPosition = new Vector3(0.039f, -0.017f);
-                    }
-                    else
-                    {
-                        sword.transform.localPosition = new Vector3(-0.019f, -0.017f);
-                    }
+                    sword.transform.localPosition = new Vector3(-0.019f, -0.151f);
                 }
-                swordAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
-                swordAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
-                swordAnimator.Play("SwordAttack");
             }
-            if (animator.GetFloat("XInput") == 0 || animator.GetFloat("YInput") == 0)
+            else
             {
-                if (animator.GetFloat("YInput") == 0)
+                if (movementInput.x < 0)
                 {
-                    if (animator.GetFloat("XInput") < 0)
-                    {
-                        swordHitBox.transform.localPosition = new Vector3(-0.112f, -0.085f);
-                        Debug.Log(swordHitBox.transform.position);
-                    }
-                    else
-                    {
-                        swordHitBox.transform.localPosition = new Vector3(0.112f, -0.085f);
-                    }
+                    sword.transform.localPosition = new Vector3(0.039f, -0.017f);
                 }
-                if (animator.GetFloat("XInput") == 0)
+                else
                 {
-                    if (animator.GetFloat("YInput") < 0)
-                    {
-                        swordHitBox.transform.localPosition = new Vector3(0.016f, -0.179f);
-                    }
-                    else
-                    {
-                        swordHitBox.transform.localPosition = new Vector3(0, -0.039f);
-                    }
+                    sword.transform.localPosition = new Vector3(-0.019f, -0.017f);
                 }
-                animator.Play("SwordAttack");
             }
+            swordAnimator.Play("SwordAttack");
+        }
+        if (animator.GetFloat("XInput") == 0 || animator.GetFloat("YInput") == 0)
+        {
+            if (animator.GetFloat("YInput") == 0)
+            {
+                if (animator.GetFloat("XInput") < 0)
+                {
+                    swordHitBox.transform.localPosition = new Vector3(-0.112f, -0.085f);
+                    Debug.Log(swordHitBox.transform.position);
+                }
+                else
+                {
+                    swordHitBox.transform.localPosition = new Vector3(0.112f, -0.085f);
+                }
+            }
+            if (animator.GetFloat("XInput") == 0)
+            {
+                if (animator.GetFloat("YInput") < 0)
+                {
+                    swordHitBox.transform.localPosition = new Vector3(0.016f, -0.179f);
+                }
+                else
+                {
+                    swordHitBox.transform.localPosition = new Vector3(0, -0.039f);
+                }
+            }
+            animator.Play("SwordAttack");
         }
     }
     public void OnFire3()
     {
-        if (timer > 0.5)
-        {
-            timer = 0;
-            if (animator.GetFloat("XInput") != 0 || animator.GetFloat("YInput") != 0)
-            {
-                spearAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
-                spearAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
-            }
-            else
-            {
-                spearAnimator.SetFloat("XInput", -1);
-                spearAnimator.SetFloat("YInput", 0);
-            }
-            spearAnimator.Play("SpearAttack");
-        }
+
+        timer = 0;
+        spearAnimator.Play("SpearAttack");
     }
     public void OnParry()
     {
         if (timer > 0.5)
         {
             timer = 0;
-            if (animator.GetFloat("XInput") != 0 || animator.GetFloat("YInput") != 0)
-            {
-                shieldAnimator.SetFloat("XInput", animator.GetFloat("XInput"));
-                shieldAnimator.SetFloat("YInput", animator.GetFloat("YInput"));
-            }
             shieldAnimator.Play("ShieldParry");
         }
     }
     public void OnSandy()
     {
-        if(sandyTimer >= 10f)
+        if (sandyTimer >= 10f)
         {
             panel.SetActive(true);
             Time.timeScale = 0.5f;
@@ -299,5 +296,23 @@ public class PlayerController : MonoBehaviour
             shieldHoldAnimator.speed = shieldAnimator.speed * 2;
             sandyEnabled = true;
         }
+    }
+    public void OnDash()
+    {
+        StartCoroutine(Dash());
+    }
+    private IEnumerator Dash()
+    {
+        isDashing = true;
+        canMove = false;
+        rb.velocity = new Vector2(animator.GetFloat("XInput") * dashSpeed, animator.GetFloat("YInput") * dashSpeed);
+        if (animator.GetFloat("XInput") == 0 && animator.GetFloat("YInput") == 0)
+        {
+            rb.velocity = new Vector2(-1 * dashSpeed, 0 * dashSpeed);
+        }
+        yield return new WaitForSeconds(dashDuration);
+        rb.velocity = Vector2.zero;
+        canMove = false;
+        isDashing = false;
     }
 }

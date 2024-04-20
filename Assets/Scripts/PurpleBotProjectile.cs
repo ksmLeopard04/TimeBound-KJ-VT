@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TreeEditor;
 using UnityEngine;
 
 public class PurpleBotProjectile : MonoBehaviour
@@ -9,6 +8,7 @@ public class PurpleBotProjectile : MonoBehaviour
 
     private Transform player;
     private Vector2 target;
+    private float timer;
 
     // Start is called before the first frame update
     private void Awake()
@@ -28,6 +28,11 @@ public class PurpleBotProjectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        timer += Time.deltaTime;
+        if(timer > 3)
+        {
+            DestroyProjectile();
+        }
         transform.position += transform.right * speed * Time.deltaTime;
 
         if (transform.position.x == target.x && transform.position.y == target.y)
@@ -40,8 +45,15 @@ public class PurpleBotProjectile : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            player.GetComponent<PlayerController>().health += 1;
-            DestroyProjectile();
+            if(player.GetComponent<PlayerController>().isDashing)
+            {
+                return;
+            }
+            else
+            {
+                player.GetComponent<PlayerController>().health += 0.5f;
+                DestroyProjectile();
+            }
         }
     }
 

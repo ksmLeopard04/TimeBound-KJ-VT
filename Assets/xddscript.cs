@@ -6,26 +6,16 @@ public class xddscript : MonoBehaviour
 {
     public GameObject gravitything;
     public GameObject panel;
-    public static bool gotSucked;
     public GameObject exitCollider;
-
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] Transform spawn;
+    private void Start()
     {
-        gotSucked = false;
+        GameObject.Find("Player").transform.position = spawn.transform.position;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-           
             StartCoroutine(MyCoroutine());
         }
     }
@@ -37,7 +27,7 @@ public class xddscript : MonoBehaviour
         panel.SetActive(true);
 
         GameObject.Find("BGMusic").SetActive(false);
-        gotSucked = true;
+        GameObject.Find("Player").GetComponent<PlayerController>().gotSucked = true;
         exitCollider.SetActive(true);
 
         // Yield for one second
@@ -45,7 +35,7 @@ public class xddscript : MonoBehaviour
         panel.SetActive(false);
         gravitything.SetActive(false);
         GameObject.Find("Player").GetComponent<PlayerController>().moveSpeed = 7;
-       
+
         gameObject.SetActive(false);
 
     }
