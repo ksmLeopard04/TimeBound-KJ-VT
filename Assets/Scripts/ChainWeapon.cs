@@ -8,9 +8,13 @@ public class ChainWeapon : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            collision.gameObject.GetComponent<PurpleBot2>().speed = 0.2f;
-            collision.gameObject.GetComponent<PurpleBot2>().startTimeBtwShots = 3.5f;
-            collision.gameObject.GetComponent<PurpleBot2>().timeBtwShots = collision.gameObject.GetComponent<PurpleBot2>().startTimeBtwShots;
+            if (collision.gameObject.name == "PurpleBot2")
+            {
+                collision.gameObject.GetComponent<PurpleBot2>().speed = 0.2f;
+                collision.gameObject.GetComponent<PurpleBot2>().startTimeBtwShots = 3.5f;
+                collision.gameObject.GetComponent<PurpleBot2>().timeBtwShots = collision.gameObject.GetComponent<PurpleBot2>().startTimeBtwShots;
+            }
+            
             collision.gameObject.GetComponent<SpriteRenderer>().color = Color.cyan;
         }
     }

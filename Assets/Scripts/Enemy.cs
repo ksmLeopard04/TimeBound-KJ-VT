@@ -28,12 +28,16 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if(health <= 0)
         {
-            Defeated();
+
+            StartCoroutine(Defeated());
         }
     }
-    public void Defeated()
+    IEnumerator Defeated()
     {
-        animator.SetTrigger("isDead");
+         animator.SetTrigger("isDead");
+
+        yield return new WaitForSeconds(1f);
+
         Destroy(gameObject);
     }
 

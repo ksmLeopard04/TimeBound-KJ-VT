@@ -99,11 +99,11 @@ GameObject:
   - component: {fileID: -1615695067365267507}
   m_Layer: 0
   m_Name: XenoGrunt
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &105692607871699307
 Transform:
   m_ObjectHideFlags: 0
@@ -114,7 +114,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.8765919, y: -0.02259, z: 0}
-  m_LocalScale: {x: 0.18170917, y: 0.18170917, z: 0.18170917}
+  m_LocalScale: {x: 1.0345429, y: 1.0345429, z: 1.0345429}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9059462331259480391}
