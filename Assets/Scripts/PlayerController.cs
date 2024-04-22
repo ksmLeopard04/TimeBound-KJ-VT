@@ -130,6 +130,7 @@ public class PlayerController : MonoBehaviour
             animator.SetFloat("XInput", movementInput.x);
             animator.SetFloat("YInput", movementInput.y);
             animator.SetBool("isMoving", true);
+            
         }
         else
         {
@@ -139,7 +140,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(parrySandy)
+        
+        if (parrySandy)
         {
             StartCoroutine(Sandy(3));
             parrySandy = false;

@@ -4097,6 +4097,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 622484203}
     - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: SceneNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
       propertyPath: sceneToLoad
       value: OutsideHome
       objectReference: {fileID: 0}
