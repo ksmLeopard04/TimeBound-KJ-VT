@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<SettingsData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <masterVolume>0.3</masterVolume>
+  <SFXvolume>0.3</SFXvolume>
+  <ambientVolume>0.3</ambientVolume>
+  <lastMasterVolume>0</lastMasterVolume>
+  <lastSFXvolume>0</lastSFXvolume>
+  <lastAmbientVolume>0</lastAmbientVolume>
+</SettingsData>

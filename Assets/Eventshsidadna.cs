@@ -8,16 +8,21 @@ public class Eventshsidadna : MonoBehaviour
     public GameObject enemy;
     public Transform enemySpawn;
     public GameObject battleMusic;
-
+    public Transform playerTransform;
+    public bool movedToSpawn;
     // Start is called before the first frame update
     void Start()
     {
-        if (GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true)
+    }
+    private void Update()
+    {
+        if (GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true && !movedToSpawn)
         {
             player = GameObject.Find("Player");
             enemy.SetActive(true);
-            player.transform.position = gameObject.transform.position;
+            player.transform.position = playerTransform.transform.position;
             battleMusic.SetActive(true);
+            movedToSpawn = true;
         }
     }
 }

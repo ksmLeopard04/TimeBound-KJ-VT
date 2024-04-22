@@ -285,19 +285,7 @@ public class PlayerController : MonoBehaviour
     {
         panel.SetActive(true);
         Time.timeScale = 0.5f;
-        animator.speed = animator.speed / 0.5f;
-        shieldAnimator.speed = shieldAnimator.speed / 0.5f;
-        spearAnimator.speed = spearAnimator.speed / 0.5f;
-        weaponAnimator.speed = weaponAnimator.speed / 0.5f;
-        swordAnimator.speed = swordAnimator.speed / 0.5f;
-        shieldHoldAnimator.speed = shieldAnimator.speed / 0.5f;
         yield return new WaitForSecondsRealtime(sandyTime);
-        animator.speed = animator.speed * 0.5f;
-        shieldAnimator.speed = shieldAnimator.speed * 0.5f;
-        spearAnimator.speed = spearAnimator.speed * 0.5f;
-        weaponAnimator.speed = weaponAnimator.speed * 0.5f;
-        swordAnimator.speed = swordAnimator.speed * 0.5f;
-        shieldHoldAnimator.speed = shieldAnimator.speed * 0.5f;
         Time.timeScale = 1f;
         panel.SetActive(false);
         parrySandy = false;
