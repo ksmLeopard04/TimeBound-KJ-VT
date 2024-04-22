@@ -140,7 +140,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AfterImageGenerator.Instance.GetFromPool();
+        
         if (parrySandy)
         {
             StartCoroutine(Sandy(3));
