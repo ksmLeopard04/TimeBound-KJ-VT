@@ -4157,13 +4157,17 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1758577102}
+    - target: {fileID: 4550935529574509987, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 5080304265648505709, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: m_Name
       value: PurpleBot
       objectReference: {fileID: 0}
     - target: {fileID: 5080304265648505709, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

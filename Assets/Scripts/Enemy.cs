@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    Animator animator;
+    Color myColor;
+
+    public void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+        myColor = gameObject.GetComponent<SpriteRenderer>().color;
+    }
     public float Health
     {
         set
@@ -14,6 +22,9 @@ public class Enemy : MonoBehaviour
     public float health = 10;
     public void TakeDamage(float damage)
     {
+    
+        StartCoroutine(GotHit());
+
         health -= damage;
         if(health <= 0)
         {
@@ -22,6 +33,21 @@ public class Enemy : MonoBehaviour
     }
     public void Defeated()
     {
+        animator.SetTrigger("isDead");
         Destroy(gameObject);
     }
+
+    IEnumerator GotHit()
+    {
+        gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+
+        yield return new WaitForSeconds(1f);
+
+        gameObject.GetComponent<SpriteRenderer>().color = myColor;
+
+
+    }
+
+
+
 }

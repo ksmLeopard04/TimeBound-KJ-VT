@@ -718,6 +718,10 @@ PrefabInstance:
       value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 4550935529574509987, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4550935529574509987, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
@@ -1075,6 +1079,7 @@ MonoBehaviour:
   enemySpawn: {fileID: 1230532902}
   battleMusic: {fileID: 436924243}
   playerTransform: {fileID: 1938350693}
+  movedToSpawn: 0
 --- !u!1 &1551252849
 GameObject:
   m_ObjectHideFlags: 0
