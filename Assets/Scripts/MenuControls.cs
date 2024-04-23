@@ -185,6 +185,6 @@ public class MenuControls : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("TestSceneA");
+        SceneManager.LoadScene("Home");
     }
 }
