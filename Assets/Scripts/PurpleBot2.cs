@@ -14,7 +14,7 @@ public class PurpleBot2 : MonoBehaviour
 
     public GameObject projectile;
     public Transform player;
-
+    public bool slowed;
 
     // Start is called before the first frame update
     void Start()
@@ -52,15 +52,16 @@ public class PurpleBot2 : MonoBehaviour
         }
         if (speed == 0.2f)
         {
-            if(timer == 0)
+            if(slowed)
             {
                 timer = 4.0f;
+                slowed = false;
             }
             if(timer > 0)
             {
                 timer -= Time.deltaTime;
             }
-            if(timer <= 0)
+            if(timer < 0)
             {
                 timer = 0;
                 speed = 1.5f;

@@ -23,8 +23,20 @@ public class MenuControls : MonoBehaviour
     int previousPanel;
     float time;
     Vector3 speed;
+    GameObject player;
+    GameObject BGMusic;
     private void Start()
     {
+        player = GameObject.Find("Player");
+        BGMusic = GameObject.Find("BGMusic");
+        if(player != null)
+        {
+            Destroy(player);
+        }
+        if(BGMusic != null)
+        {
+            Destroy(BGMusic);
+        }
         offScreen = GameObject.Find("OffScreen").transform;
         onScreen = GameObject.Find("OnScreen").transform;
         previousOnScreen = new List<GameObject>();

@@ -9,6 +9,10 @@ public class GoNext : MonoBehaviour
     [SerializeField]
     public int SceneNumber;
     [SerializeField] Transform spawn;
+    private GameObject[] enemies;
+    public GameObject battleMusic;
+    public bool hasEnemies;
+
     // Start is called before the first frame update
     private void Start()
     {
