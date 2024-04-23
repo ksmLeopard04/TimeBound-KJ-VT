@@ -109,41 +109,44 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMove(InputValue movementValue)
     {
-        movementInput = movementValue.Get<Vector2>();
-        if (movementInput.x < -0.5)
+        if(playerInstance.enabled)
         {
-            movementInput.x = -1;
-        }
-        else if (movementInput.x > 0.5)
-        {
-            movementInput.x = 1;
-        }
-        else if (-0.5 < movementInput.x && movementInput.x < 0.5)
-        {
-            movementInput.x = 0;
-        }
-        if (movementInput.y < -0.5)
-        {
-            movementInput.y = -1;
-        }
-        else if (movementInput.y > 0.5)
-        {
-            movementInput.y = 1;
-        }
-        else if (-0.5 < movementInput.y && movementInput.y < 0.5)
-        {
-            movementInput.y = 0;
-        }
-        if (movementInput != Vector2.zero)
-        {
-            animator.SetFloat("XInput", movementInput.x);
-            animator.SetFloat("YInput", movementInput.y);
-            animator.SetBool("isMoving", true);
-            
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
+            movementInput = movementValue.Get<Vector2>();
+            if (movementInput.x < -0.5)
+            {
+                movementInput.x = -1;
+            }
+            else if (movementInput.x > 0.5)
+            {
+                movementInput.x = 1;
+            }
+            else if (-0.5 < movementInput.x && movementInput.x < 0.5)
+            {
+                movementInput.x = 0;
+            }
+            if (movementInput.y < -0.5)
+            {
+                movementInput.y = -1;
+            }
+            else if (movementInput.y > 0.5)
+            {
+                movementInput.y = 1;
+            }
+            else if (-0.5 < movementInput.y && movementInput.y < 0.5)
+            {
+                movementInput.y = 0;
+            }
+            if (movementInput != Vector2.zero)
+            {
+                animator.SetFloat("XInput", movementInput.x);
+                animator.SetFloat("YInput", movementInput.y);
+                animator.SetBool("isMoving", true);
+
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
         }
     }
     // Update is called once per frame
@@ -202,96 +205,115 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire()
     {
-        if (timer > 1.034)
+        if(playerInstance.enabled)
         {
-            timer = 0;
-            chainAudio.Play();
-            stopwatch.SetActive(true);
-            weaponAnimator.SetBool("Attack", true);
-            weaponAnimator.SetBool("Extended", false);
+            if (timer > 1.034)
+            {
+                timer = 0;
+                chainAudio.Play();
+                stopwatch.SetActive(true);
+                weaponAnimator.SetBool("Attack", true);
+                weaponAnimator.SetBool("Extended", false);
+            }
         }
     }
     public void OnFire2()
     {
-        timer = 0;
-        swordAudio.Play();
-        if (movementInput.x != 0 && movementInput.y != 0)
+        if (playerInstance.enabled)
         {
-            if (movementInput.y < 0)
+            timer = 0;
+            swordAudio.Play();
+            if (movementInput.x != 0 && movementInput.y != 0)
             {
-                if (movementInput.x < 0)
+                if (movementInput.y < 0)
                 {
-                    sword.transform.localPosition = new Vector3(0.039f, -0.151f);
+                    if (movementInput.x < 0)
+                    {
+                        sword.transform.localPosition = new Vector3(0.039f, -0.151f);
+                    }
+                    else
+                    {
+                        sword.transform.localPosition = new Vector3(-0.019f, -0.151f);
+                    }
                 }
                 else
                 {
-                    sword.transform.localPosition = new Vector3(-0.019f, -0.151f);
+                    if (movementInput.x < 0)
+                    {
+                        sword.transform.localPosition = new Vector3(0.039f, -0.017f);
+                    }
+                    else
+                    {
+                        sword.transform.localPosition = new Vector3(-0.019f, -0.017f);
+                    }
                 }
+                swordAnimator.Play("SwordAttack");
             }
-            else
+            if (animator.GetFloat("XInput") == 0 || animator.GetFloat("YInput") == 0)
             {
-                if (movementInput.x < 0)
+                if (animator.GetFloat("YInput") == 0)
                 {
-                    sword.transform.localPosition = new Vector3(0.039f, -0.017f);
+                    if (animator.GetFloat("XInput") < 0)
+                    {
+                        swordHitBox.transform.localPosition = new Vector3(-0.112f, -0.085f);
+                        Debug.Log(swordHitBox.transform.position);
+                    }
+                    else
+                    {
+                        swordHitBox.transform.localPosition = new Vector3(0.112f, -0.085f);
+                    }
                 }
-                else
+                if (animator.GetFloat("XInput") == 0)
                 {
-                    sword.transform.localPosition = new Vector3(-0.019f, -0.017f);
+                    if (animator.GetFloat("YInput") < 0)
+                    {
+                        swordHitBox.transform.localPosition = new Vector3(0.016f, -0.179f);
+                    }
+                    else
+                    {
+                        swordHitBox.transform.localPosition = new Vector3(0, -0.039f);
+                    }
                 }
+                animator.Play("SwordAttack");
             }
-            swordAnimator.Play("SwordAttack");
-        }
-        if (animator.GetFloat("XInput") == 0 || animator.GetFloat("YInput") == 0)
-        {
-            if (animator.GetFloat("YInput") == 0)
-            {
-                if (animator.GetFloat("XInput") < 0)
-                {
-                    swordHitBox.transform.localPosition = new Vector3(-0.112f, -0.085f);
-                    Debug.Log(swordHitBox.transform.position);
-                }
-                else
-                {
-                    swordHitBox.transform.localPosition = new Vector3(0.112f, -0.085f);
-                }
-            }
-            if (animator.GetFloat("XInput") == 0)
-            {
-                if (animator.GetFloat("YInput") < 0)
-                {
-                    swordHitBox.transform.localPosition = new Vector3(0.016f, -0.179f);
-                }
-                else
-                {
-                    swordHitBox.transform.localPosition = new Vector3(0, -0.039f);
-                }
-            }
-            animator.Play("SwordAttack");
         }
     }
     public void OnFire3()
     {
-        spearAudio.Play();
-        timer = 0;
-        spearAnimator.Play("SpearAttack");
+        if (playerInstance.enabled)
+        {
+            spearAudio.Play();
+            timer = 0;
+            spearAnimator.Play("SpearAttack");
+        }
+
     }
     public void OnParry()
     {
-        if (timer > 0.5)
+        if(playerInstance.enabled)
         {
-            timer = 0;
-            shieldAnimator.Play("ShieldParry");
+            if (timer > 0.5)
+            {
+                timer = 0;
+                shieldAnimator.Play("ShieldParry");
+            }
         }
     }
     public void OnSandy()
     {
-        moveSpeed = originalMoveSpeed;
-        StartCoroutine(Sandy(7f));
+        if(playerInstance.enabled)
+        {
+            moveSpeed = originalMoveSpeed;
+            StartCoroutine(Sandy(7f));
+        }
     }
     public void OnDash()
     {
-        moveSpeed = originalMoveSpeed;
-        StartCoroutine(Dash());
+        if(playerInstance.enabled)
+        {
+            moveSpeed = originalMoveSpeed;
+            StartCoroutine(Dash());
+        }
     }
     private IEnumerator Dash()
     {

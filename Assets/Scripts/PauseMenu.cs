@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
@@ -13,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public PlayerController playerController;
     public GameObject audioMenu;
     public GameObject controlsMenu;
+
 
     // Start is called before the first frame update
     void Start()

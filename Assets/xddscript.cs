@@ -26,7 +26,7 @@ public class xddscript : MonoBehaviour
         gravitything.SetActive(true);
         panel.SetActive(true);
 
-        GameObject.Find("BGMusic").SetActive(false);
+        BGmusic.instance.GetComponent<AudioSource>().mute = true;
         GameObject.Find("Player").GetComponent<PlayerController>().gotSucked = true;
         exitCollider.SetActive(true);
 

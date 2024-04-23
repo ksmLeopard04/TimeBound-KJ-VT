@@ -10,6 +10,7 @@ public class Eventshsidadna : MonoBehaviour
     public GameObject battleMusic;
     public Transform playerTransform;
     public bool movedToSpawn;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +28,7 @@ public class Eventshsidadna : MonoBehaviour
         if(enemy.transform.childCount == 0 && GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true)
         {
             battleMusic.SetActive(false);
-            GameObject.Find("BGMusic").SetActive(true);
+            BGmusic.instance.GetComponent<AudioSource>().mute = false;
         }
     }
 }
