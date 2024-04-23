@@ -8981,7 +8981,6 @@ GameObject:
   - component: {fileID: 1737562257753479749}
   - component: {fileID: 235845375582351691}
   - component: {fileID: 7905985695949433740}
-  - component: {fileID: 7631074921352381463}
   - component: {fileID: 4853339221720170681}
   m_Layer: 0
   m_Name: Player
@@ -9235,21 +9234,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &7631074921352381463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7764843526331348534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5af515898bc7f449a3e7860d24cb76c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabToInstantiate: {fileID: 3050635207492803038, guid: 327ffdeada73b4c4991d3805d09334f1, type: 3}
-  stopwatch: {fileID: 0}
-  distance: 1
 --- !u!50 &4853339221720170681
 Rigidbody2D:
   serializedVersion: 4
