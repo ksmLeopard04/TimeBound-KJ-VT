@@ -65,9 +65,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.1109859, y: 0}
+  m_Offset: {x: 0.9628514, y: 0}
   serializedVersion: 2
-  m_Radius: 5.2320614
+  m_Radius: 11.313447
 --- !u!114 &4872301064741631973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -82,6 +82,86 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   detectedObjs: []
   colliderZone: {fileID: 7055122436524826823}
+--- !u!1 &6179433058153583704
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8468166357511037761}
+  - component: {fileID: 5570104927333437198}
+  - component: {fileID: 2398455468075886601}
+  m_Layer: 0
+  m_Name: MeeleeAttack
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &8468166357511037761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179433058153583704}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 105692607871699307}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5570104927333437198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179433058153583704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: facbf2075f76add438cf4eddc3b51f6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &2398455468075886601
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6179433058153583704}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.35022667, y: 0}
+  serializedVersion: 2
+  m_Radius: 2.1528234
 --- !u!1 &7032652030555953653
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +177,7 @@ GameObject:
   - component: {fileID: 6196582785031531409}
   - component: {fileID: 7561636559263176957}
   - component: {fileID: -1615695067365267507}
+  - component: {fileID: 879365367132164535}
   m_Layer: 0
   m_Name: XenoGrunt
   m_TagString: Enemy
@@ -113,11 +194,12 @@ Transform:
   m_GameObject: {fileID: 7032652030555953653}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.82886, y: -0.02259, z: 0}
-  m_LocalScale: {x: 0.5224752, y: 0.5224752, z: 0.5224752}
+  m_LocalPosition: {x: -0.85549, y: -0.02259, z: 0}
+  m_LocalScale: {x: 0.7167631, y: 0.7167631, z: 0.7167631}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9059462331259480391}
+  - {fileID: 8468166357511037761}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5571899642708860250
@@ -205,7 +287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11d213f8165b274bb420514ac12b021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 100
+  moveSpeed: 250
   zone: {fileID: 4872301064741631973}
   collider: {fileID: 7561636559263176957}
 --- !u!50 &6196582785031531409
@@ -283,3 +365,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &879365367132164535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7032652030555953653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b3768741cec8a4cb015d5104cbc8f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MeeleeAttack: {fileID: 6179433058153583704}

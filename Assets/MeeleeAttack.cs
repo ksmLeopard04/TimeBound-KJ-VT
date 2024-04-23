@@ -23,7 +23,7 @@ public class MeeleeAttack : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("Got hit");
-            player.GetComponent<PlayerController>().health += 0.5f;
+            player.GetComponent<PlayerController>().health += 1f;
         }
     }
 }

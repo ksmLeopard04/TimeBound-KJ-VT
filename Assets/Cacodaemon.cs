@@ -30,7 +30,7 @@ public class Cacodaemon : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnDestroy()
     {
         player.GetComponent<PlayerController>().moveSpeed = normalSpeed;
     }

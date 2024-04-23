@@ -65,9 +65,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.31201535, y: 0}
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 9.352571
 --- !u!114 &4872301064741631973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.87659, y: -0.02259, z: 0}
-  m_LocalScale: {x: 1.9339978, y: 1.9339978, z: 1.9339978}
+  m_LocalScale: {x: 1.6332176, y: 1.6332176, z: 1.6332176}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9059462331259480391}
@@ -286,7 +286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11d213f8165b274bb420514ac12b021, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 600
+  moveSpeed: 500
   zone: {fileID: 4872301064741631973}
   collider: {fileID: 7561636559263176957}
 --- !u!50 &6196582785031531409
