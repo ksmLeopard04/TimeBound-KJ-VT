@@ -116,6 +116,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 4913494560690667583}
+  optionsMenu: {fileID: 0}
+  panel: {fileID: 0}
+  player: {fileID: 0}
+  playerController: {fileID: 0}
+  audioMenu: {fileID: 0}
+  controlsMenu: {fileID: 0}
 --- !u!1 &2430293647676569278
 GameObject:
   m_ObjectHideFlags: 0

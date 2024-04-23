@@ -24,5 +24,10 @@ public class Eventshsidadna : MonoBehaviour
             battleMusic.SetActive(true);
             movedToSpawn = true;
         }
+        if(enemy.transform.childCount == 0 && GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true)
+        {
+            battleMusic.SetActive(false);
+            GameObject.Find("BGMusic").SetActive(true);
+        }
     }
 }

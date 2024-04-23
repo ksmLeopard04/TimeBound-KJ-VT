@@ -287,7 +287,7 @@ AudioSource:
   m_GameObject: {fileID: 436924243}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 2374759613434554949, guid: 49dc883d1dd76e0468b042bf9401fe20, type: 2}
   m_audioClip: {fileID: 8300000, guid: f9972ea6e00d0194f8290fcae864219f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.336
@@ -510,6 +510,10 @@ PrefabInstance:
       propertyPath: SceneNumber
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 436924243}
     - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -20.94

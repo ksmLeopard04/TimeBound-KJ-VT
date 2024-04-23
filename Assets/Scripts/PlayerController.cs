@@ -8,11 +8,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    private float lastImageXPos;
     public static PlayerController playerInstance = null;
     public InputAction parryAction;
     Vector2 movementInput;
     Rigidbody2D rb;
     public float moveSpeed = 1f;
+    const float originalMoveSpeed = 7f;
     public float collisionOffset = 0.05f;
     public bool pressedDown;
     public ContactFilter2D movementFilter;
@@ -28,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public Animator shieldHoldAnimator;
     public static bool canMove;
     public GameObject panel;
-    float timer = 0f;
+    public float timer = 0f;
     public float health;
     public bool gotSucked;
     public bool parrySandy;
@@ -38,6 +40,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dashDuration = 1f;
     [SerializeField] float dashCooldown = 1f;
     public bool isDashing;
+    public bool isPaused;
+    public AudioSource swordAudio;
+    public AudioSource spearAudio;
+    public AudioSource dashAudio;
+    public AudioSource chainAudio;
+    public bool sandyActive;
+    public float distanceBetweenImages;
 
     private void Awake()
     {
@@ -140,7 +149,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(sandyActive)
+        {
+            BGMusic.GetComponent<AudioSource>().pitch = Mathf.SmoothStep(1, 0.4f, 5f);
+        }
+        else
+        {
+            BGMusic.GetComponent<AudioSource>().pitch = 1f;
+        }
         if (parrySandy)
         {
             StartCoroutine(Sandy(3));
@@ -180,11 +196,16 @@ public class PlayerController : MonoBehaviour
             gotSucked = false;
         }
     }
+    public void OnPause()
+    {
+        isPaused = true;
+    }
     public void OnFire()
     {
         if (timer > 1.034)
         {
             timer = 0;
+            chainAudio.Play();
             stopwatch.SetActive(true);
             weaponAnimator.SetBool("Attack", true);
             weaponAnimator.SetBool("Extended", false);
@@ -193,6 +214,7 @@ public class PlayerController : MonoBehaviour
     public void OnFire2()
     {
         timer = 0;
+        swordAudio.Play();
         if (movementInput.x != 0 && movementInput.y != 0)
         {
             if (movementInput.y < 0)
@@ -249,7 +271,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire3()
     {
-
+        spearAudio.Play();
         timer = 0;
         spearAnimator.Play("SpearAttack");
     }
@@ -263,14 +285,17 @@ public class PlayerController : MonoBehaviour
     }
     public void OnSandy()
     {
+        moveSpeed = originalMoveSpeed;
         StartCoroutine(Sandy(7f));
     }
     public void OnDash()
     {
+        moveSpeed = originalMoveSpeed;
         StartCoroutine(Dash());
     }
     private IEnumerator Dash()
     {
+        dashAudio.Play();
         isDashing = true;
         canMove = false;
         rb.velocity = new Vector2(animator.GetFloat("XInput") * dashSpeed, animator.GetFloat("YInput") * dashSpeed);
@@ -285,9 +310,11 @@ public class PlayerController : MonoBehaviour
     }
     public IEnumerator Sandy(float sandyTime)
     {
+        sandyActive = true;
         panel.SetActive(true);
         Time.timeScale = 0.5f;
         yield return new WaitForSecondsRealtime(sandyTime);
+        sandyActive = false;
         Time.timeScale = 1f;
         panel.SetActive(false);
         parrySandy = false;
