@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyScript : MonoBehaviour
@@ -16,9 +17,12 @@ public class EnemyScript : MonoBehaviour
 
     Animator animator;
 
+    bool isAttacking;
+
     // Start is called before the first frame update
     void Start()
-    {
+    { 
+        isAttacking = false;
         rb = GetComponent<Rigidbody2D>();
         //collider = GetComponent<CircleCollider2D>();
         animator = GetComponent<Animator>();
@@ -27,7 +31,10 @@ public class EnemyScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isAttacking)
+        {
+
+        }
     }
 
     private void FixedUpdate()
@@ -49,5 +56,14 @@ public class EnemyScript : MonoBehaviour
     {
         animator.SetBool("Attacking", false);
 
+    }
+
+    IEnumerator Attacking()
+    {
+        gameObject.transform.GetChild(1).gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+
+        gameObject.transform.GetChild(1).gameObject.SetActive(false);
     }
 }
