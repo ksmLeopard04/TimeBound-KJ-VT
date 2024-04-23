@@ -26,6 +26,7 @@ public class Cacodaemon : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             player.GetComponent<PlayerController>().moveSpeed = 0;
+            GameObject.Find("Cacodaemon").GetComponent<EnemyScript>().moveSpeed = 0;
         }
     }
 
