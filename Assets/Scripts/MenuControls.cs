@@ -197,6 +197,6 @@ public class MenuControls : MonoBehaviour
     }
     public void Play()
     {
-        SceneManager.LoadScene("Home");
+        SceneManager.LoadScene("LevelSelect");
     }
 }
