@@ -10,25 +10,29 @@ public class Eventshsidadna : MonoBehaviour
     public GameObject battleMusic;
     public Transform playerTransform;
     public bool movedToSpawn;
+    public bool fightOver;
     
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.Find("Player");
+        fightOver = false;
     }
     private void Update()
     {
-        if (GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true && !movedToSpawn)
+        if (player.GetComponent<PlayerController>().gotSucked == true && !movedToSpawn)
         {
-            player = GameObject.Find("Player");
             enemy.SetActive(true);
             player.transform.position = playerTransform.transform.position;
             battleMusic.SetActive(true);
             movedToSpawn = true;
         }
-        if(enemy.transform.childCount == 0 && GameObject.Find("Player").GetComponent<PlayerController>().gotSucked == true)
+        if (enemy.transform.childCount == 0 && player.GetComponent<PlayerController>().gotSucked == true && fightOver == false)
         {
             battleMusic.SetActive(false);
             BGmusic.instance.GetComponent<AudioSource>().mute = false;
+            player.GetComponent<PlayerController>().talkToSelf = true;
+            fightOver = true;
         }
     }
 }

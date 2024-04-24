@@ -53,6 +53,8 @@ AudioMixerController:
     name: Master
   - guid: bbd262b91c1265344bd3a3a944032438
     name: Ambient
+  - guid: 5121add4aee42d74d94f42e7b7f1a78c
+    name: Pitch
   - guid: 765671ba1984544439f247beba7ebdc9
     name: SFX
   m_AudioMixerGroupViews:

@@ -494,6 +494,87 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &706837368
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: spawn
+      value: 
+      objectReference: {fileID: 392896591}
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: SceneNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: battleMusic
+      value: 
+      objectReference: {fileID: 436924243}
+    - target: {fileID: 5805663327156830500, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: goneToScene3
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.037068393
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6481209714418729031, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8313165816955730702, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_Name
+      value: SceneThing (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574896054027811810, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_Size.x
+      value: 10.927208
+      objectReference: {fileID: 0}
+    - target: {fileID: 8574896054027811810, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.6416988
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 67a4c00237d50b645b91ba145995447a, type: 3}
 --- !u!1001 &728549560
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -632,6 +713,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: retreatDistance
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: stoppingDistance
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: startTimeBtwShots
       value: 2.5
       objectReference: {fileID: 0}
@@ -716,6 +805,14 @@ PrefabInstance:
     - target: {fileID: 2052350367190353837, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: retreatDistance
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: stoppingDistance
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: startTimeBtwShots
@@ -839,6 +936,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: retreatDistance
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: stoppingDistance
+      value: 1.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: startTimeBtwShots
       value: 2.5
       objectReference: {fileID: 0}
@@ -958,6 +1063,14 @@ PrefabInstance:
     - target: {fileID: 2052350367190353837, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: retreatDistance
+      value: 2.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
+      propertyPath: stoppingDistance
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 4109079082144048307, guid: 18624013cba311b4b864e2f335d278a0, type: 3}
       propertyPath: startTimeBtwShots
@@ -1084,6 +1197,7 @@ MonoBehaviour:
   battleMusic: {fileID: 436924243}
   playerTransform: {fileID: 1938350693}
   movedToSpawn: 0
+  fightOver: 0
 --- !u!1 &1551252849
 GameObject:
   m_ObjectHideFlags: 0
@@ -17965,6 +18079,7 @@ SceneRoots:
   - {fileID: 115973466}
   - {fileID: 1494082087}
   - {fileID: 728549560}
+  - {fileID: 706837368}
   - {fileID: 1499645321}
   - {fileID: 436924244}
   - {fileID: 1347557273}

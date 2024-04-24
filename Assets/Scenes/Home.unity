@@ -177,6 +177,11 @@ Transform:
   - {fileID: 1592469832}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &462641580 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 226459165034674943, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+  m_PrefabInstance: {fileID: 1805686393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &534840716
 GameObject:
   m_ObjectHideFlags: 0
@@ -2540,6 +2545,8 @@ GameObject:
   - component: {fileID: 1164094666}
   - component: {fileID: 1164094665}
   - component: {fileID: 1164094667}
+  - component: {fileID: 1164094668}
+  - component: {fileID: 1164094669}
   m_Layer: 0
   m_Name: SpriteSheet_0
   m_TagString: Untagged
@@ -2659,6 +2666,95 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.21, y: 0.32}
   m_EdgeRadius: 0
+--- !u!61 &1164094668
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164094664}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.12}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.21, y: 0.32}
+    newSize: {x: 0.21, y: 0.32}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.21, y: 0.38}
+  m_EdgeRadius: 0
+--- !u!114 &1164094669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1164094664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306123d5dc574a742a7568aa69ff0f33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  controller: {fileID: 0}
+--- !u!1 &1225944088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1141026644742242453, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+  m_PrefabInstance: {fileID: 1805686393}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1225944092
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225944088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cadf0bc56c6a9488e6c658a468ece6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 1656386815}
+  lines:
+  - 'Mom: Hey Jack, have you seen your dad?'
+  - 'Jack: No.'
+  - 'Mom: Can you please go look for him at the Grove he''s working in nearby?'
+  - 'Jack: Sure thing!'
+  textSpeed: 0.1
+  player: {fileID: 0}
+--- !u!1 &1272323100 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2175151458203829744, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+  m_PrefabInstance: {fileID: 1805686393}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1290427273
 GameObject:
   m_ObjectHideFlags: 0
@@ -4004,6 +4100,17 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1656386815 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3909262639522470959, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+  m_PrefabInstance: {fileID: 1805686393}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1805686393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4024,6 +4131,34 @@ PrefabInstance:
       propertyPath: BGMusic
       value: 
       objectReference: {fileID: 578252394}
+    - target: {fileID: 1737562257753479749, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: myMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 49dc883d1dd76e0468b042bf9401fe20, type: 2}
+    - target: {fileID: 1737562257753479749, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: dialogue1
+      value: 
+      objectReference: {fileID: 1225944088}
+    - target: {fileID: 1737562257753479749, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: dialogue2
+      value: 
+      objectReference: {fileID: 1272323100}
+    - target: {fileID: 1737562257753479749, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: dialogue3
+      value: 
+      objectReference: {fileID: 462641580}
+    - target: {fileID: 1798280661330809922, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798280661330809922, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798280661330809922, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1819884472381367028, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_IgnoreReversedGraphics
       value: 1
@@ -4031,6 +4166,22 @@ PrefabInstance:
     - target: {fileID: 3067052283613416964, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909262639522470959, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909262639522470959, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909262639522470959, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3909262639522470959, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4348022032360110399, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_ReferencePixelsPerUnit
@@ -4092,6 +4243,18 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 6667915435742764200, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667915435742764200, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6667915435742764200, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7764843526331348534, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_Name
       value: Player
@@ -4099,7 +4262,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1141026644742242453, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1225944092}
   m_SourcePrefab: {fileID: 100100000, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
 --- !u!1001 &4746180976976949701
 PrefabInstance:

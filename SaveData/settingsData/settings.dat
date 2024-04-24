@@ -2,7 +2,7 @@
 <SettingsData xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <masterVolume>1</masterVolume>
   <SFXvolume>1</SFXvolume>
-  <ambientVolume>1</ambientVolume>
+  <ambientVolume>0.333325446</ambientVolume>
   <lastMasterVolume>0</lastMasterVolume>
   <lastSFXvolume>0</lastSFXvolume>
   <lastAmbientVolume>0</lastAmbientVolume>

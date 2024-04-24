@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
     public TextMeshProUGUI textComponent;
     public string[] lines;
     public float textSpeed;
+    public GameObject player;
 
     private int index;
 
     private void Start()
     {
-        textComponent.text = string.Empty;
+        player = GameObject.Find("Player");
+        player.GetComponent<PlayerController>().isDialogue = true;
+        player.GetComponent<PlayerController>().movementInput = Vector2.zero;
         StartDialogue();
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (textComponent.text == lines[index])
             {
@@ -34,6 +39,7 @@ public class Dialogue : MonoBehaviour
     void StartDialogue()
     {
         index = 0;
+        textComponent.text = string.Empty;
         StartCoroutine(TypeLine());
     }
     IEnumerator TypeLine()
@@ -54,7 +60,12 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
+            if (gameObject.name == "DialogueBox2" && gameObject.activeSelf)
+            {
+                SceneManager.LoadScene(0);
+            }
             gameObject.SetActive(false);
+            player.GetComponent<PlayerController>().isDialogue = false;
         }
     }
 }

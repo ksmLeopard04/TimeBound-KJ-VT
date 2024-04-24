@@ -5,13 +5,15 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
+using UnityEngine.Audio;
 
 public class PlayerController : MonoBehaviour
 {
     private float lastImageXPos;
     public static PlayerController playerInstance = null;
     public InputAction parryAction;
-    Vector2 movementInput;
+    public Vector2 movementInput;
     Rigidbody2D rb;
     public float moveSpeed = 1f;
     const float originalMoveSpeed = 7f;
@@ -41,12 +43,21 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dashCooldown = 1f;
     public bool isDashing;
     public bool isPaused;
+    public bool isDialogue;
     public AudioSource swordAudio;
     public AudioSource spearAudio;
     public AudioSource dashAudio;
     public AudioSource chainAudio;
     public bool sandyActive;
+    public bool goneToScene3;
     public float distanceBetweenImages;
+    public bool talkToMom1;
+    public bool talkToMom2;
+    public bool talkToSelf;
+    public GameObject dialogue1;
+    public GameObject dialogue2;
+    public GameObject dialogue3;
+    public AudioMixer myMixer;
 
     private void Awake()
     {
@@ -81,7 +92,7 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (canMove)
+        if (canMove && !isDialogue)
         {
             if (movementInput != Vector2.zero)
             {
@@ -109,7 +120,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnMove(InputValue movementValue)
     {
-        if(playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             movementInput = movementValue.Get<Vector2>();
             if (movementInput.x < -0.5)
@@ -152,7 +163,27 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(sandyActive)
+        if(movementInput == Vector2.zero)
+        {
+            animator.SetBool("isMoving", false);
+        }
+        if (talkToMom1)
+        {
+            dialogue1.SetActive(true);
+            talkToMom1 = false;
+        }
+        if (talkToMom2)
+        {
+            dialogue2.SetActive(true);
+            talkToMom2 = false;
+        }
+        if (talkToSelf)
+        {
+            dialogue3.SetActive(true);
+            talkToSelf = false;
+            health = 0;
+        }
+        if (sandyActive)
         {
             BGMusic.GetComponent<AudioSource>().pitch = Mathf.SmoothStep(1, 0.4f, 5f);
         }
@@ -205,7 +236,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire()
     {
-        if(playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             if (timer > 1.034)
             {
@@ -219,7 +250,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire2()
     {
-        if (playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             timer = 0;
             swordAudio.Play();
@@ -280,7 +311,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnFire3()
     {
-        if (playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             spearAudio.Play();
             timer = 0;
@@ -290,7 +321,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnParry()
     {
-        if(playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             if (timer > 0.5)
             {
@@ -301,7 +332,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnSandy()
     {
-        if(playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             moveSpeed = originalMoveSpeed;
             StartCoroutine(Sandy(7f));
@@ -309,7 +340,7 @@ public class PlayerController : MonoBehaviour
     }
     public void OnDash()
     {
-        if(playerInstance.enabled)
+        if (playerInstance.enabled && !isDialogue)
         {
             moveSpeed = originalMoveSpeed;
             StartCoroutine(Dash());
@@ -335,9 +366,11 @@ public class PlayerController : MonoBehaviour
         sandyActive = true;
         panel.SetActive(true);
         Time.timeScale = 0.5f;
+        myMixer.SetFloat("Pitch", 0.9f);
         yield return new WaitForSecondsRealtime(sandyTime);
         sandyActive = false;
         Time.timeScale = 1f;
+        myMixer.SetFloat("Pitch", 1f);
         panel.SetActive(false);
         parrySandy = false;
     }

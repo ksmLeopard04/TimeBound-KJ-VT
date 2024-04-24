@@ -8,6 +8,7 @@ public class GoNext : MonoBehaviour
 {
     [SerializeField]
     public int SceneNumber;
+    public bool goneToScene3;
     [SerializeField] Transform spawn;
     private GameObject[] enemies;
     public GameObject battleMusic;
@@ -29,6 +30,7 @@ public class GoNext : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             SceneManager.LoadSceneAsync(SceneNumber);
+            GameObject.Find("Player").GetComponent<PlayerController>().goneToScene3 = goneToScene3;
         }
 
     }
