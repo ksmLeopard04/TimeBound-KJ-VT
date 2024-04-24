@@ -685,6 +685,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1141026644742242453, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3576305862264537102, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
+      propertyPath: m_SortingOrder
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5152170329238194874, guid: cf7933734dadecd4b85038a671523bdf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.0439477
@@ -5188,8 +5196,8 @@ MonoBehaviour:
   cacoPrefab: {fileID: 7032652030555953653, guid: ddac56e5caddcce42a377fa07c7d3d8f, type: 3}
   gruntPrefab: {fileID: 7032652030555953653, guid: 3efd6f4a37cd5c04881553ca0b430c60, type: 3}
   purpleBotPrefab: {fileID: 5080304265648505709, guid: 7a8de4bd38a3ec843be7e6ca8dee8ffa, type: 3}
-  cacoInterval: 5
-  gruntInterval: 5
+  cacoInterval: 20
+  gruntInterval: 10
   purpleBotInterval: 10
 --- !u!1 &1361867114
 GameObject:

@@ -183,14 +183,6 @@ public class PlayerController : MonoBehaviour
             talkToSelf = false;
             health = 0;
         }
-        if (sandyActive)
-        {
-            BGMusic.GetComponent<AudioSource>().pitch = Mathf.SmoothStep(1, 0.4f, 5f);
-        }
-        else
-        {
-            BGMusic.GetComponent<AudioSource>().pitch = 1f;
-        }
         if (parrySandy)
         {
             StartCoroutine(Sandy(3));
@@ -224,10 +216,17 @@ public class PlayerController : MonoBehaviour
         GetComponentInChildren<HealthUI>().healthIndex = (int)health;
         if (health >= 4)
         {
-            SceneManager.LoadScene("Home");
-            health = 0;
-            BGMusic.SetActive(true);
-            gotSucked = false;
+            if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(5))
+            {
+                SceneManager.LoadScene(0);
+            }
+            else
+            {
+                SceneManager.LoadScene("Home");
+                health = 0;
+                BGMusic.SetActive(true);
+                gotSucked = false;
+            }
         }
     }
     public void OnPause()

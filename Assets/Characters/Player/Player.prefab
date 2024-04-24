@@ -1009,13 +1009,14 @@ GameObject:
   - component: {fileID: 5128437133364912028}
   - component: {fileID: 1277136038997589119}
   - component: {fileID: 7461854621212584428}
+  - component: {fileID: 7839624554919613202}
   m_Layer: 5
   m_Name: DialogueBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5128437133364912028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1074,6 +1075,26 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7839624554919613202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141026644742242453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6cadf0bc56c6a9488e6c658a468ece6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 3909262639522470959}
+  lines:
+  - 'Mom: Hey Jack, have you seen your dad?'
+  - 'Jack: No.'
+  - 'Mom: Can you please go look for him at the Grove he''s working in nearby?'
+  - 'Jack: Sure thing!'
+  textSpeed: 0.1
+  player: {fileID: 0}
 --- !u!1 &1165877637122974672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1416,7 +1437,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2133,7 +2154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.216}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.114807, y: -161.66254}
+  m_AnchoredPosition: {x: -20.114807, y: -161.66255}
   m_SizeDelta: {x: -1311.1216, y: -24.344482}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4579136095152013614
@@ -3596,7 +3617,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4780,7 +4801,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -8630,6 +8651,7 @@ MonoBehaviour:
   dashCooldown: 1
   isDashing: 0
   isPaused: 0
+  isDialogue: 0
   swordAudio: {fileID: 4925737669811413190}
   spearAudio: {fileID: 426014970807676549}
   dashAudio: {fileID: 498204216891654817}
@@ -8640,9 +8662,10 @@ MonoBehaviour:
   talkToMom1: 0
   talkToMom2: 0
   talkToSelf: 0
-  dialogue1: {fileID: 0}
-  dialogue2: {fileID: 0}
-  dialogue3: {fileID: 0}
+  dialogue1: {fileID: 1141026644742242453}
+  dialogue2: {fileID: 2175151458203829744}
+  dialogue3: {fileID: 226459165034674943}
+  myMixer: {fileID: 24100000, guid: 49dc883d1dd76e0468b042bf9401fe20, type: 2}
 --- !u!61 &235845375582351691
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8795,7 +8818,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 5696348722609519334}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -8803,10 +8826,10 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &4348022032360110399
 MonoBehaviour:
@@ -8821,7 +8844,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_UiScaleMode: 1
-  m_ReferencePixelsPerUnit: 100
+  m_ReferencePixelsPerUnit: 128
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
